@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Zap,
   CheckCircle,
@@ -7,44 +7,26 @@ import {
   ArrowRight,
   Flame,
   Lock,
-  Star,
   AlertTriangle,
-  Quote,
-  Instagram,
-  Camera,
   Volume2,
   VolumeX,
   ChevronLeft,
   ChevronRight,
-  SwipeRight,
   Maximize2,
   Activity,
+  Camera,
 } from "lucide-react";
 
-// --- DADOS DEPOIMENTOS (CARROSSEL) ---
-/*
-const testimonials = [
-  {
-    name: "Carla Souza",
-    desc: "-4.5kg em 7 dias",
-    text: "O Protocolo R5 salvou meu vestido de casamento! Desinchei muito rápido.",
-    img: "https://i.postimg.cc/0rgtCcPb/1Artboard-1-1.png",
-  },
-  {
-    name: "Marcos Lima",
-    desc: "-8kg em 30 dias",
-    text: "Parei de brigar com a balança. O método EI mudou minha relação com a comida.",
-    img: "https://i.postimg.cc/GtT7YZwR/1Artboard-1-10.png",
-  },
-  {
-    name: "Ana Clara",
-    desc: "Autoestima recuperada",
-    text: "A combinação do R5 para dar o start e o EI para manter foi perfeita.",
-    img: "https://i.postimg.cc/SRYT8w0H/1Artboard-1-11.png",
-  },
-];*/
+// --- TIPAGEM ---
+interface Testimonial {
+  name: string;
+  desc: string;
+  time: string;
+  img: string;
+}
 
-const testimonials = [
+// --- DADOS ---
+const testimonials: Testimonial[] = [
   {
     name: "Rafael M.",
     desc: "-12kg",
@@ -156,7 +138,7 @@ const testimonials = [
 ];
 
 // --- IMAGENS DE FUNDO (Background Dinâmico) ---
-const backgroundImages = [
+const backgroundImages: string[] = [
   "https://i.postimg.cc/m2LQfYqq/danillo-Freitas.jpg",
   "https://i.postimg.cc/ncFvb456/danillo-Freitas.jpg",
   "https://i.postimg.cc/HsYQDwR1/danillo-Freitas.jpg",
@@ -187,8 +169,8 @@ export default function App() {
   const [bgIndex, setBgIndex] = useState(0);
 
   // Estados para Swipe (Toque)
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
+  const [touchStart, setTouchStart] = useState<number>(0);
+  const [touchEnd, setTouchEnd] = useState<number>(0);
 
   // Controle do Background Automático (Tempo)
   useEffect(() => {
@@ -198,27 +180,29 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // Carrossel Depoimentos Automático (Mais Rápido: 3.5s)
-  useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 3500);
-    return () => clearInterval(timer);
-  }, [currentSlide]);
-
+  // Funções de navegação (definidas antes do useEffect que as usa)
   const nextSlide = () =>
     setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+
   const prevSlide = () =>
     setCurrentSlide(
       (prev) => (prev - 1 + testimonials.length) % testimonials.length
     );
 
-  // Lógica de Swipe
-  const handleTouchStart = (e) => {
+  // Carrossel Depoimentos Automático
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [currentSlide]); // Dependência necessária para o reset do timer funcionar ao trocar slide manualmente
+
+  // Lógica de Swipe corrigida com Tipagem
+  const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
 
-  const handleTouchMove = (e) => {
+  const handleTouchMove = (e: React.TouchEvent) => {
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
@@ -238,9 +222,9 @@ export default function App() {
     setTouchEnd(0);
   };
 
-  const getSlideStyles = (index) => {
+  const getSlideStyles = (index: number) => {
     if (index === currentSlide) {
-      // Card Central: Vertical, Focado, Sem blur
+      // Card Central
       return "z-20 scale-100 opacity-100 translate-x-0 brightness-110 shadow-[0_20px_60px_-10px_rgba(204,255,0,0.3)] border-[#CCFF00]";
     }
 
@@ -248,7 +232,7 @@ export default function App() {
       (currentSlide - 1 + testimonials.length) % testimonials.length;
     const nextIndex = (currentSlide + 1) % testimonials.length;
 
-    // Cards Laterais: Menores, Desfocados, Atrás
+    // Cards Laterais
     if (index === prevIndex) {
       return "z-10 scale-[0.85] opacity-50 -translate-x-[70%] md:-translate-x-[120%] brightness-50 border-transparent grayscale rotate-y-12";
     }
@@ -327,8 +311,9 @@ export default function App() {
           </h1>
 
           <p className="text-xl md:text-2xl font-bold text-gray-200 mb-8 max-w-3xl mx-auto border-l-4 border-[#CCFF00] pl-4 md:border-none md:pl-0 drop-shadow-md">
-            "7 dias mudam o corpo,{" "}
-            <span className="text-[#CCFF00]">30 dias mudam o hábito.</span>"
+            &quot;7 dias mudam o corpo,{" "}
+            <span className="text-[#CCFF00]">30 dias mudam o hábito.</span>
+            &quot;
           </p>
 
           <p className="text-gray-300 text-sm md:text-base font-medium max-w-2xl mx-auto mb-8 drop-shadow-md">
@@ -538,13 +523,10 @@ export default function App() {
                     <img
                       src={item.img}
                       alt="Resultado"
-                      // Usei object-fill ou object-cover dependendo da arte.
-                      // Se a arte tem texto na borda, object-contain é mais seguro, mas object-cover é mais bonito.
-                      // Como é 1080x1350, object-cover em um container 4:5 funciona perfeito.
                       className="w-full h-full object-cover"
                     />
 
-                    {/* Etiqueta Minimalista (Só aparece se o mouse passar ou se for o card ativo) */}
+                    {/* Etiqueta Minimalista */}
                     <div className="absolute bottom-4 right-4 z-20">
                       <div className="bg-black/90 backdrop-blur border border-[#CCFF00] px-4 py-2 rounded-lg flex flex-col items-end shadow-xl">
                         <p className="text-[#CCFF00] text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
@@ -556,7 +538,7 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* Gradiente sutil na base para garantir leitura da etiqueta */}
+                    {/* Gradiente sutil na base */}
                     <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
                   </div>
                 </div>
@@ -593,16 +575,16 @@ export default function App() {
           </div>
         </div>
 
-        {/* --- POR QUE OS DOIS JUNTOS? (NOVO CONCEITO: "POP-OUT CARD") --- */}
+        {/* --- POR QUE OS DOIS JUNTOS? (POP-OUT CARD) --- */}
         <div className="w-full max-w-7xl mx-auto relative mt-20 mb-48 px-4">
-          {/* CONTAINER PRETO (O CARD GIGANTE) */}
+          {/* CONTAINER PRETO */}
           <div className="bg-[#111] border border-white/10 rounded-[3rem] relative overflow-visible shadow-2xl">
             {/* Background com Textura */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 rounded-[3rem]"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent rounded-[3rem]"></div>
 
             <div className="flex flex-col lg:flex-row items-center relative ">
-              {/* LADO ESQUERDO: TEXTO (Padding ajustado) */}
+              {/* LADO ESQUERDO: TEXTO */}
               <div className="lg:w-3/5 p-8 md:p-16 lg:py-20 lg:pl-20 z-1">
                 <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic mb-8 leading-none">
                   A{" "}
@@ -656,7 +638,6 @@ export default function App() {
               </div>
 
               {/* LADO DIREITO: IMAGEM "SAINDO" DO CARD */}
-              {/* No Desktop: Absolute, Bottom-0, Right-0, Scale-Up */}
               <div className="w-full lg:w-2/5 relative h-[500px] lg:h-auto flex justify-center lg:block">
                 {/* HOLOFOTE ATRÁS DO PNG */}
                 <div className="absolute top-1/2 left-1/2 lg:left-auto lg:right-20 -translate-x-1/2 lg:translate-x-0 -translate-y-1/2 w-[300px] h-[300px] bg-[#CCFF00] blur-[120px] opacity-20 rounded-full pointer-events-none"></div>
@@ -664,8 +645,6 @@ export default function App() {
                 <img
                   src="https://i.postimg.cc/bNm1zGfp/FOTO-DANILLO-PNG.png"
                   alt="Danillo Freitas"
-                  // MOBILE: Imagem normal dentro do fluxo
-                  // DESKTOP: Absolute, preso no bottom-0 (rodapé do card), deslocado pra direita e pra cima (pop-out)
                   className="relative  scale-168 w-auto h-auto max-h-[500px] lg:max-h-[600px] xl:max-h-[700px] object-contain object-bottom drop-shadow-2xl mb-[-2px]"
                 />
               </div>
@@ -735,7 +714,7 @@ export default function App() {
             </h2>
           </div>
 
-          {/* MASONRY LAYOUT - Auto Adaptação ao tamanho da imagem */}
+          {/* MASONRY LAYOUT */}
           <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {/* Imagem 1 */}
             <div className="break-inside-avoid relative group overflow-hidden rounded-2xl border border-white/10 mb-4">
@@ -849,6 +828,7 @@ export default function App() {
               <span className="text-[#CCFF00]">Especialista em Resultado</span>
             </p>
           </div>
+
           <div className="md:ml-auto text-center md:text-right">
             <a
               href="https://www.instagram.com/danillofreitasoficial/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D#"
