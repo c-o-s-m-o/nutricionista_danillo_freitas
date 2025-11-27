@@ -369,15 +369,20 @@ export default function App() {
 
         {/* --- CTA PRINCIPAL --- */}
         <div className="w-full max-w-md mx-auto mb-20 text-center">
-          <button className="w-full bg-[#CCFF00] hover:bg-[#b3e600] text-black font-black text-lg py-4 rounded-xl shadow-[0_0_30px_rgba(204,255,0,0.4)] transition transform hover:scale-105 uppercase tracking-wide flex items-center justify-center gap-2 group">
+          <a
+            href="https://pay.kiwify.com.br/Tk2TstI"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-[#CCFF00] hover:bg-[#b3e600] text-black font-black text-lg py-4 rounded-xl shadow-[0_0_30px_rgba(204,255,0,0.4)] transition transform hover:scale-105 uppercase tracking-wide flex items-center justify-center gap-2 group"
+          >
             <span>Quero Minha Vaga no Grupo VIP</span>
             <ArrowRight
               size={20}
               className="group-hover:translate-x-1 transition"
             />
-          </button>
+          </a>
           <p className="text-gray-400 text-xs mt-4 font-medium uppercase tracking-wider flex justify-center items-center gap-2 drop-shadow-md">
-            <Lock size={12} /> Acesso Imediato ao PDF após compra
+            <Lock size={12} /> Acesso Imediato ao conteúdo após compra
           </p>
         </div>
 
