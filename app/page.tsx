@@ -526,18 +526,6 @@ export default function App() {
                       className="w-full h-full object-cover"
                     />
 
-                    {/* Etiqueta Minimalista */}
-                    <div className="absolute bottom-4 right-4 z-20">
-                      <div className="bg-black/90 backdrop-blur border border-[#CCFF00] px-4 py-2 rounded-lg flex flex-col items-end shadow-xl">
-                        <p className="text-[#CCFF00] text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
-                          <Activity size={10} /> {item.time}
-                        </p>
-                        <p className="text-xl font-black text-white italic leading-none">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-
                     {/* Gradiente sutil na base */}
                     <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
                   </div>
