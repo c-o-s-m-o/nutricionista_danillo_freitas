@@ -687,10 +687,14 @@ export default function App() {
                 </span>
               </div>
             </div>
-
-            <button className="w-full bg-[#CCFF00] hover:bg-[#bbe600] text-black font-black text-xl py-5 rounded-xl shadow-lg transition transform hover:scale-105 uppercase italic mb-6 flex items-center justify-center gap-3 animate-pulse-slow">
+            <a
+              href="https://pay.kiwify.com.br/Tk2TstI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-[#CCFF00] hover:bg-[#bbe600] text-black font-black text-xl py-5 rounded-xl shadow-lg transition transform hover:scale-105 uppercase italic mb-6 flex items-center justify-center gap-3 animate-pulse-slow"
+            >
               COMPRE AGORA <ArrowRight size={24} strokeWidth={3} />
-            </button>
+            </a>
 
             <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">
               Somente até 28/11 • Vagas Limitadas
