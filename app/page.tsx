@@ -270,7 +270,7 @@ export default function App() {
 
       <div className="bg-[#CCFF00] text-black font-black text-xs md:text-sm text-center py-2 uppercase tracking-widest sticky top-0 z-50 shadow-[0_0_20px_rgba(204,255,0,0.5)] flex justify-center items-center gap-2 animate-fade-in-down">
         <AlertTriangle size={16} strokeWidth={3} />
-        Somente até 28/11 • Vagas Limitadas
+        Exclusivo • O próximo passo é seu{" "}
       </div>
 
       {/* --- NAV BAR --- */}
@@ -304,22 +304,44 @@ export default function App() {
           </div>
 
           <h1 className="text-4xl md:text-7xl font-black italic leading-none mb-6 tracking-tight uppercase drop-shadow-2xl">
-            Black Friday R5 + <br />
+            Emagrecimento Inteligente <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CCFF00] to-[#99cc00] drop-shadow-[0_0_10px_rgba(204,255,0,0.3)]">
-              Emagrecimento Inteligente
+              com o Método R5
             </span>
           </h1>
 
           <p className="text-xl md:text-2xl font-bold text-gray-200 mb-8 max-w-3xl mx-auto border-l-4 border-[#CCFF00] pl-4 md:border-none md:pl-0 drop-shadow-md">
-            &quot;7 dias mudam o corpo,{" "}
-            <span className="text-[#CCFF00]">30 dias mudam o hábito.</span>
-            &quot;
+            O protocolo que ativa seu metabolismo em 7 dias e transforma seu
+            corpo em 30.
           </p>
+          <div className="bg-white/5 backdrop-blur-sm border-l-4 border-[#CCFF00] p-4 rounded-xl max-w-2xl mx-auto mb-8 text-left">
+            <p className="text-gray-300 font-medium italic">
+              &quot;Quando o metabolismo desperta, o corpo responde. <br />
+              <span className="text-[#CCFF00] font-bold">
+                Quando o hábito muda, o resultado permanece.
+              </span>
+              &quot;
+            </p>
+          </div>
 
-          <p className="text-gray-300 text-sm md:text-base font-medium max-w-2xl mx-auto mb-8 drop-shadow-md">
-            E pela primeira vez, eu uni os dois métodos que mais transformam
-            meus pacientes em uma única oferta imperdível.
-          </p>
+          <div className="flex items-center justify-center gap-2 text-gray-400 text-xs uppercase tracking-widest mb-8">
+            <CheckCircle size={14} className="text-[#CCFF00]" />
+            <span>Criado por Danillo Freitas • +5.000 vidas impactadas</span>
+          </div>
+          <div className="w-full max-w-md mx-auto mb-10">
+            <a
+              href="https://pay.kiwify.com.br/Tk2TstI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full block bg-[#CCFF00] hover:bg-[#b3e600] text-black font-black text-lg py-4 rounded-xl shadow-[0_0_30px_rgba(204,255,0,0.4)] transition transform hover:scale-105 uppercase tracking-wide flex items-center justify-center gap-2 group"
+            >
+              <span>QUERO ENTRAR NO MÉTODO R5</span>
+              <ArrowRight
+                size={20}
+                className="group-hover:translate-x-1 transition"
+              />
+            </a>
+          </div>
         </div>
 
         {/* --- VÍDEO "HIGH PERFORMANCE" --- */}
@@ -366,6 +388,22 @@ export default function App() {
             ></iframe>
           </div>
         </div>
+        {/* --- BLOCO 2: VSL COPY (TEXTO ABAIXO DO VÍDEO) --- */}
+        <div className="max-w-3xl mx-auto mb-16 text-center px-4">
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-6 font-medium">
+            Se você sente que faz dieta, treina, mas o corpo não muda… existe
+            uma razão.
+            <br />
+            <span className="text-white font-bold">
+              Não é falta de esforço. É falta do estímulo certo.
+            </span>
+          </p>
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+            O Método R5 foi desenvolvido exatamente para reativar o metabolismo,
+            quebrar o ciclo de tentativas falhas e acelerar resultados de forma
+            inteligente — sem treinos exaustivos ou dietas extremas.
+          </p>
+        </div>
 
         {/* --- CTA PRINCIPAL --- */}
         <div className="w-full max-w-md mx-auto mb-20 text-center">
@@ -375,17 +413,16 @@ export default function App() {
             rel="noopener noreferrer"
             className="w-full bg-[#CCFF00] hover:bg-[#b3e600] text-black font-black text-lg py-4 rounded-xl shadow-[0_0_30px_rgba(204,255,0,0.4)] transition transform hover:scale-105 uppercase tracking-wide flex items-center justify-center gap-2 group"
           >
-            <span>Quero Minha Vaga no Grupo VIP</span>
+            <span>TRANSFORMAR MEU CORPO AGORA</span>
             <ArrowRight
               size={20}
               className="group-hover:translate-x-1 transition"
             />
           </a>
-          <p className="text-gray-400 text-xs mt-4 font-medium uppercase tracking-wider flex justify-center items-center gap-2 drop-shadow-md">
-            <Lock size={12} /> Acesso Imediato ao conteúdo após compra
+          <p className="text-gray-500 text-xs mt-4 font-medium uppercase tracking-wider flex justify-center items-center gap-2 drop-shadow-md">
+            <Lock size={12} /> Seu próximo passo começa hoje
           </p>
         </div>
-
         {/* --- SEÇÃO "O QUE VOCÊ VAI RECEBER" (CARDS GRID) --- */}
         <div className="w-full max-w-6xl relative mb-24">
           <div className="text-center mb-12">
@@ -414,7 +451,7 @@ export default function App() {
                       Fase 01
                     </span>
                     <h3 className="text-xl font-bold text-white uppercase italic">
-                      Protocolo R5
+                      R5: O Ativador Metabólico
                     </h3>
                   </div>
                 </div>
@@ -426,12 +463,13 @@ export default function App() {
 
                 <ul className="space-y-3">
                   {[
-                    "Até 5kg de retenção eliminados",
-                    "Desincha rápido",
-                    "Afina o rosto",
-                    "Destrava o corpo",
-                    "Eleva a autoestima",
-                    "Dá o primeiro resultado visível",
+                    "Redução de retenção",
+                    "Aumento da disposição",
+                    "Corpo começa a responder",
+                    "Inchaço reduz nas primeiras semanas",
+                    "Sensação real de evolução",
+                    "Primeiros resultados visíveis",
+                    "Reset metabólico inteligente",
                   ].map((item, idx) => (
                     <li
                       key={idx}
@@ -460,7 +498,7 @@ export default function App() {
                       Fase 02
                     </span>
                     <h3 className="text-xl font-bold text-white uppercase italic">
-                      Método EI (30 Dias)
+                      EI: Emagrecimento Inteligente
                     </h3>
                   </div>
                 </div>
@@ -473,11 +511,11 @@ export default function App() {
                 <ul className="space-y-3">
                   {[
                     "Estratégia 80/20 real",
-                    "Comer de tudo com consciência",
-                    "Zero extremismo",
-                    "Constância sem sofrimento",
-                    "Alimentação prática",
-                    "Construção de hábito sólido",
+                    "Cardápios simples e flexíveis",
+                    "Orientações sem sofrimentos",
+                    "Estabilidade de rotina",
+                    "Controle alimentar sem ansiedade",
+                    "Construção de hábitos permanentes",
                   ].map((item, idx) => (
                     <li
                       key={idx}
@@ -503,7 +541,8 @@ export default function App() {
               Resultados <span className="text-[#CCFF00]">Comprovados</span>
             </h2>
             <p className="text-gray-400 text-xs mt-2">
-              Deslize para ver as transformações
+              Transformações reais de pessoas que seguiram o mesmo método.
+              Pessoas comuns que estavam travadas e destravaram o metabolismo.
             </p>
           </div>
 
@@ -598,11 +637,10 @@ export default function App() {
                         R5: O Ativador
                       </h3>
                       <p className="text-gray-400 font-medium leading-relaxed">
-                        Acelera seu metabolismo e provoca o{" "}
-                        <strong className="text-white">
-                          efeito desinchaço
-                        </strong>{" "}
-                        em apenas 7 dias.
+                        O estímulo que seu corpo precisa para sair do modo{" "}
+                        <strong className="text-white">travado</strong> e entrar
+                        em estado{" "}
+                        <strong className="text-white">evolução.</strong>
                       </p>
                     </div>
                   </div>
@@ -618,14 +656,19 @@ export default function App() {
                         EI: A Estratégia
                       </h3>
                       <p className="text-gray-400 font-medium leading-relaxed">
-                        Ensina você a manter o peso perdido comendo o que gosta,
-                        garantindo{" "}
+                        O caminho claro para manter o processo acontecendo,
+                        comendo o que você gosta e construindo um{" "}
                         <strong className="text-white">
-                          resultado definitivo
+                          resultado definitivo.
                         </strong>
-                        .
                       </p>
                     </div>
+                  </div>
+                  <div className="bg-[#CCFF00]/10 border border-[#CCFF00]/30 p-4 rounded-xl">
+                    <p className="text-[#CCFF00] font-bold text-xs md:text-sm uppercase tracking-widest">
+                      Quando você ativa + quando você aplica — o resultado não
+                      tem escolha. Ele aparece.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -645,29 +688,24 @@ export default function App() {
           </div>
         </div>
 
-        {/* --- OFERTA VIP (PREÇOS) --- */}
+        {/* --- BLOCO 6: OFERTA VIP --- */}
         <div className="w-full max-w-3xl mx-auto mb-24 relative">
-          <div className="bg-[#050505]/95 backdrop-blur border-2 border-[#CCFF00] rounded-3xl p-8 md:p-10 relative z-10 text-center shadow-[0_0_50px_rgba(204,255,0,0.1)]">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#CCFF00] text-black font-black text-xs md:text-sm px-6 py-2 rounded-full uppercase tracking-widest shadow-lg whitespace-nowrap">
-              Oferta VIP Black Friday • 50% OFF
+          <div className="bg-[#050505] border-2 border-[#CCFF00] rounded-3xl p-8 md:p-10 relative z-10 text-center shadow-[0_0_50px_rgba(204,255,0,0.1)]">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#CCFF00] text-black font-black text-xs md:text-sm px-6 py-2 rounded-full uppercase tracking-widest shadow-lg whitespace-nowrap animate-bounce">
+              Oferta VIP Black Friday
             </div>
 
             <h3 className="text-xl md:text-2xl font-bold text-gray-400 uppercase tracking-widest mb-8 mt-4">
-              Valores Oficiais
+              Valor Oficial Método R5 + EI30
             </h3>
 
             <div className="flex justify-center items-center gap-8 mb-8 opacity-50 grayscale">
               <div className="text-center">
-                <p className="text-sm font-bold">R5</p>
-                <p className="text-xl md:text-2xl font-black line-through text-red-500 decoration-white">
-                  R$ 67
+                <p className="text-xl md:text-3xl font-black line-through text-red-500 decoration-white">
+                  R$ 497
                 </p>
-              </div>
-              <div className="text-xl font-bold text-white">+</div>
-              <div className="text-center">
-                <p className="text-sm font-bold">EI</p>
-                <p className="text-xl md:text-2xl font-black line-through text-red-500 decoration-white">
-                  R$ 247
+                <p className="text-xs uppercase tracking-widest mt-1">
+                  (Preço Referência)
                 </p>
               </div>
             </div>
@@ -676,7 +714,7 @@ export default function App() {
 
             <div className="mb-6">
               <p className="text-gray-300 text-xs uppercase font-bold tracking-widest mb-2">
-                Combo R5 + EI por apenas:
+                Seu acesso hoje por apenas:
               </p>
               <div className="flex items-center justify-center gap-2 text-white">
                 <span className="text-2xl font-bold mb-4 text-gray-500">
@@ -686,19 +724,16 @@ export default function App() {
                   157
                 </span>
               </div>
+              <p className="text-gray-400 text-sm mt-4 italic max-w-xs mx-auto">
+                "Você está tendo acesso ao mesmo método usado para transformar
+                +5.000 vidas, por menos que o valor de uma consulta
+                profissional."
+              </p>
             </div>
-            <a
-              href="https://pay.kiwify.com.br/Tk2TstI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-[#CCFF00] hover:bg-[#bbe600] text-black font-black text-xl py-5 rounded-xl shadow-lg transition transform hover:scale-105 uppercase italic mb-6 flex items-center justify-center gap-3 animate-pulse-slow"
-            >
-              COMPRE AGORA <ArrowRight size={24} strokeWidth={3} />
-            </a>
 
-            <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">
-              Somente até 28/11 • Vagas Limitadas
-            </p>
+            <button className="w-full bg-[#CCFF00] hover:bg-[#bbe600] text-black font-black text-xl py-5 rounded-xl shadow-lg transition transform hover:scale-105 uppercase italic mb-6 flex items-center justify-center gap-3 animate-pulse-slow">
+              QUERO COMEÇAR AGORA <ArrowRight size={24} strokeWidth={3} />
+            </button>
           </div>
         </div>
 
@@ -800,6 +835,13 @@ export default function App() {
                   Comunidade
                 </p>
               </div>
+            </div>
+            <div className="relative group overflow-hidden rounded-2xl bg-[#111] flex flex-col justify-center items-center p-4 border border-white/10 col-span-2 md:col-span-1">
+              <p className="text-gray-300 text-xs italic text-center">
+                "Minha missão é tirar você do ponto de estagnação e levar ao
+                corpo que você deseja através de um método inteligente e
+                possível."
+              </p>
             </div>
           </div>
         </div>
