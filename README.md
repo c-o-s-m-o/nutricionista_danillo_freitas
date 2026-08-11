@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nutricionista Danillo Freitas
 
-## Getting Started
+Landing page comercial desenvolvida para apresentação de um profissional de nutrição, programas de acompanhamento e resultados de clientes, com foco em conversão, responsividade e experiência visual.
 
-First, run the development server:
+## Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Lucide React
+
+## Funcionalidades implementadas
+
+- hero com imagens de fundo rotativas;
+- carrossel automático de depoimentos;
+- navegação manual entre resultados;
+- suporte a swipe em dispositivos touch;
+- controle de mídia com mute/unmute;
+- componentes tipados com TypeScript;
+- layout responsivo para desktop e mobile;
+- chamadas para ação e apresentação de programas.
+
+## Pontos técnicos
+
+A interface usa hooks do React para controlar rotação de imagens, carrossel e interação por toque. O comportamento de swipe diferencia movimentos laterais para avançar ou voltar os depoimentos, oferecendo uma experiência adequada a smartphones.
+
+## Execução local
 
 ```bash
+git clone https://github.com/c-o-s-m-o/nutricionista_danillo_freitas.git
+cd nutricionista_danillo_freitas
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Por padrão, a aplicação ficará disponível em `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Evolução recomendada
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- extrair depoimentos e conteúdo para arquivos de dados ou CMS;
+- dividir a página em componentes menores;
+- adicionar testes de interação para carrossel e swipe;
+- otimizar imagens e mídia;
+- revisar acessibilidade dos controles;
+- documentar deploy;
+- adicionar screenshots do projeto ao README.
 
-## Learn More
+## Contexto de portfólio
 
-To learn more about Next.js, take a look at the following resources:
+Este projeto demonstra criação de interfaces comerciais orientadas a conversão, uso de React para interações de UI e preocupação com experiência mobile.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Autor
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Emanuel Cosmo**
